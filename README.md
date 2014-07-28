@@ -7,7 +7,7 @@ Ultra flexible grid system where you can use columns of all sizes (until 960 pix
 
 Just include the pyramid.css or pyramid.min.css in your head.
 
-* If using Bootstrap, after Bootstrap CSS link *
+*If using Bootstrap, after Bootstrap CSS link*
 
 ```
 <link href="<path-to-file>/pyramid.min.css" type="text/css" rel="stylesheet" /> 
