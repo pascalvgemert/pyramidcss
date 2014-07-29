@@ -18,33 +18,12 @@
 
 /* DEFAULT GUTTER PIXEL WIDTHS until 60 */
 	
-.row div.gutter-lg-10 { padding-right: 10px; }
-.row div.gutter-lg-20 { padding-right: 20px; }
-.row div.gutter-lg-30 { padding-right: 30px; }
-.row div.gutter-lg-40 { padding-right: 40px; }
-.row div.gutter-lg-50 { padding-right: 50px; }
-.row div.gutter-lg-60 { padding-right: 60px; }
-
-.row div.gutter-md-10 { padding-right: 10px; }
-.row div.gutter-md-20 { padding-right: 20px; }
-.row div.gutter-md-30 { padding-right: 30px; }
-.row div.gutter-md-40 { padding-right: 40px; }
-.row div.gutter-md-50 { padding-right: 50px; }
-.row div.gutter-md-60 { padding-right: 60px; }
-
-.row div.gutter-sm-10 { padding-right: 10px; }
-.row div.gutter-sm-20 { padding-right: 20px; }
-.row div.gutter-sm-30 { padding-right: 30px; }
-.row div.gutter-sm-40 { padding-right: 40px; }
-.row div.gutter-sm-50 { padding-right: 50px; }
-.row div.gutter-sm-60 { padding-right: 60px; }
-
-.row div.gutter-xs-10 { padding-right: 10px; }
-.row div.gutter-xs-20 { padding-right: 20px; }
-.row div.gutter-xs-30 { padding-right: 30px; }
-.row div.gutter-xs-40 { padding-right: 40px; }
-.row div.gutter-xs-50 { padding-right: 50px; }
-.row div.gutter-xs-60 { padding-right: 60px; }
+.row div.gutter-lg-10, .row div.gutter-md-10, .row div.gutter-sm-10, .row div.gutter-xs-10 { padding-right: 10px; }
+.row div.gutter-lg-20, .row div.gutter-md-20, .row div.gutter-sm-20, .row div.gutter-xs-20  { padding-right: 20px; }
+.row div.gutter-lg-30, .row div.gutter-md-30, .row div.gutter-sm-30, .row div.gutter-xs-30  { padding-right: 30px; }
+.row div.gutter-lg-40, .row div.gutter-md-40, .row div.gutter-sm-40, .row div.gutter-xs-40  { padding-right: 40px; }
+.row div.gutter-lg-50, .row div.gutter-md-50, .row div.gutter-sm-50, .row div.gutter-xs-50  { padding-right: 50px; }
+.row div.gutter-lg-60, .row div.gutter-md-60, .row div.gutter-sm-60, .row div.gutter-xs-60  { padding-right: 60px; }
 
 /* COLUMN PIXEL WIDTHS until 960 */
 
