@@ -1,0 +1,158 @@
+/* MIXINS */
+
+.box-sizing (@type: border-box) {
+	-webkit-box-sizing: @type;
+	-moz-box-sizing:    @type;
+	box-sizing:         @type;
+}
+
+.generate-default-pixel-columns(@max-width, @step-size: 10, @index: 0) when (@index =< @max-width) {
+  	div[class*="col-"][class*="-x-@{index}"] {
+    	width: @index * 1px;
+	}
+	.generate-default-pixel-columns(@max-width, @step-size, (@index + @step-size));
+}
+
+.generate-default-percentage-columns(@max-width, @step-size: 5, @index: 0) when (@index =< @max-width) {
+ 	div[class*="col-"][class*="-p-@{index}"] {
+    	width: @index * 1%;
+	}
+	.generate-default-percentage-columns(@max-width, @step-size, (@index + @step-size));
+}
+
+.generate-default-gutters(@max-width, @step-size: 10, @index: 0) when (@index =< @max-width) {
+  	.row div.gutter-lg-@{index}, .row div.gutter-md-@{index}, .row div.gutter-sm-@{index}, .row div.gutter-xs-@{index} {
+    	width: @index * 1px;
+	}
+	.generate-default-gutters(@max-width, @step-size, (@index + @step-size));
+}
+
+.generate-pixel-columns(@size, @max-width, @step-size: 10, @index: 0) when (@index =< @max-width)
+{
+	.row div.col-@{size}-x-@{index} {
+		width: @index * 1px;
+	}
+	
+	.generate-pixel-columns(@size, @max-width, @step-size, (@index + @step-size))
+}
+
+.generate-percentage-columns(@size, @max-width, @step-size: 5, @index: 0) when (@index =< @max-width)
+{
+	.row div.col-@{size}-p-@{index} {
+		width: @index * 1%;
+	}
+	
+	.generate-percentage-columns(@size, @max-width, @step-size, (@index + @step-size))
+}
+
+.generate-gutters(@size, @max-width, @step-size: 10, @index: 0) when (@index =< @max-width)
+{
+	.row div.gutter-@{size}-p-@{index} {
+		width: @index * 1%;
+	}
+	
+	.generate-gutters(@size, @max-width, @step-size, (@index + @step-size))
+}
+
+/* VARIABLES */
+
+@container-max-pixel-column-width: 960;
+@container-max-percentage-column-width: 100;
+@container-max-gutter-width: 60;
+@container-max-width-xs: 100%;
+@container-max-width-sm: 100%;
+@container-max-width-md: 960px;
+@container-max-width-lg: 1160px;
+
+/* RESET PIRAMID ELEMENTS */
+
+.container { padding: 0px; }
+.row { padding: 0px; margin: 0px; }
+.row [class*="col-"] { padding: 0px; margin: 0px; float: none; width: auto; }
+
+/* BASE CSS */
+
+* {	.box-sizing; }
+.container { margin: 0px auto; max-width: @container-max-width-lg; padding: 20px; width: 100%; }
+.row { display: table; table-layout: fixed; width: 100%; }
+.row div[class*="col-"] { display: table-cell; vertical-align: top; }
+.row div[class*="clear-"] { display: table; content: " "; display: none; }
+
+/* GENERATE DEFAULTS */
+	
+.generate-default-gutters(@container-max-gutter-width);
+.generate-default-pixel-columns(@container-max-pixel-column-width);
+.generate-default-percentage-columns(@container-max-percentage-column-width);
+
+/* Large */
+
+@media(min-width:1200px){
+
+	/* VISIBILITY */
+	.hide-lg { display: none !important; }
+	.show-lg { display: block !important; }
+	.clear-lg { display: block !important; }
+}
+
+/* Medium */
+
+@media(max-width:1199px){
+	
+	.container { max-width: @container-max-width-md; }
+	
+	/* VISIBILITY */
+	.hide-md { display: none !important; }
+	.show-md { display: block !important; }
+	.clear-md { display: block !important; }
+	
+	/* GUTTER PIXEL WIDTHS until default 60 */
+	.generate-gutters("md", @container-max-gutter-width);
+	
+	/* COLUMN PIXEL WIDTHS until default 960 */
+	.generate-pixel-columns("md", @container-max-pixel-column-width);
+
+	/* COLUMN PERCENTAGE WIDTHS until default 100% */
+	.generate-percentage-columns("md", @container-max-percentage-column-width);
+}
+
+/* Small */
+
+@media(max-width:991px){
+	
+	.container { max-width: @container-max-width-sm; }
+	
+	/* VISIBILITY */
+	.hide-sm { display: none !important; }
+	.show-sm { display: block !important; }
+	.clear-sm { display: block !important; }
+	
+	/* GUTTER PIXEL WIDTHS until default 60 */
+	.generate-gutters("sm", @container-max-gutter-width);
+	
+	/* COLUMN PIXEL WIDTHS until default 960 */
+	.generate-pixel-columns("sm", @container-max-pixel-column-width);
+
+	/* COLUMN PERCENTAGE WIDTHS until default 100% */
+	.generate-percentage-columns("sm", @container-max-percentage-column-width);	
+}
+
+/* Extra Small */
+
+@media(max-width:767px){
+	
+	.container { max-width: @container-max-width-xs; }
+	
+	/* VISIBILITY */
+	.hide-xs { display: none !important; }
+	.show-xs { display: block !important; }
+	.clear-xs { display: block !important; }
+	
+	/* GUTTER PIXEL WIDTHS until default 60 */
+	.generate-gutters("xs", @container-max-gutter-width);
+	
+	/* COLUMN PIXEL WIDTHS until default 960 */
+	.generate-pixel-columns("xs", @container-max-pixel-column-width);
+
+	/* COLUMN PERCENTAGE WIDTHS until default 100% */
+	.generate-percentage-columns("xs", @container-max-percentage-column-width);	
+}
